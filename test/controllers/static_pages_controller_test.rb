@@ -29,9 +29,4 @@ class StaticPagesControllerTest < ActionController::TestCase
     assert_select "title", "Contact | #{@base_title}"
   end
   
-  test "should get sign up" do
-    get :signup
-    assert_response :success
-    # TODO
-  end
 end
