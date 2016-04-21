@@ -1,1 +1,4 @@
-# empty
+matt:
+    name: Matt Burton   
+    email: madeofburtonium@gmail.com
+    password_digest: <%= User.digest('password') %>
