@@ -3,7 +3,8 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: "John Doe", email: "matt@nephelo.co",
-                     password: "foobar", password_confirmation: "foobar")
+                     password: "foobar", password_confirmation: "foobar", 
+                     language:"english")
   end
   test "should be valid" do
     assert @user.valid?
@@ -68,6 +69,11 @@ class UserTest < ActiveSupport::TestCase
   
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?('')
+  end
+  
+  test "language should be present" do
+    @user.language = ""
+    assert_not @user.valid?
   end
 end
   

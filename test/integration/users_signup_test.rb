@@ -19,7 +19,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', 1 do
       post_via_redirect users_path, user: 
         {name: "ex", email: "ha@ha.com", password:"password",
-         password_confirmation:"password"}  
+         password_confirmation:"password", language: "english"}  
     end
     assert_template 'users/show'
     assert flash.any?

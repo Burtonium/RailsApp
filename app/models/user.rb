@@ -9,7 +9,9 @@ class User < ActiveRecord::Base
                       format: {with: VALID_EMAIL_REGEX},
                       uniqueness: { case_sensitive: false }
     validates :password, presence: true, 
-                         length: { minimum: MIN_PASSWORD_LENGTH }
+                         length: { minimum: MIN_PASSWORD_LENGTH },
+                         allow_nil: true
+    validates :language, presence: true
     has_secure_password
     
     # returns hash digest of the given string
