@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     validates :language, presence: true
     has_secure_password
     
-    ### METHODS ###
+    ### PUBLIC METHODS ###
     def User.digest(string)
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                     BCrypt::Engine.cost
@@ -64,6 +64,11 @@ class User < ActiveRecord::Base
       UserMailer.password_reset(self).deliver_now
     end
     
+    def password_reset_expired?
+      reset_sent_at < 2.hours.ago
+    end
+    
+    ### PRIVATE METHODS ###
     private
     
     def downcase_email

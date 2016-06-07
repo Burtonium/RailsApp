@@ -1,6 +1,7 @@
 matt:
     name: Matt Burton   
     email: madeofburtonium@gmail.com
+    language: "chinese"
     password_digest: <%= User.digest('password') %>
     admin: true
     activated: true
@@ -9,6 +10,7 @@ matt:
 rick:
     name: Rick Sanchez
     email: rick@rickandmorty.com
+    language: "chinese"
     password_digest: <%= User.digest('password') %>
     activated: true
     activated_at: <%= Time.zone.now %>
@@ -17,6 +19,7 @@ rick:
 user_<%= n %>:
   name:  <%= "User #{n}" %>
   email: <%= "user-#{n}@example.com" %>
+  language: "chinese"
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
