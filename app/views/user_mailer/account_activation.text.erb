@@ -1,8 +1,8 @@
-Nephelo
+<% APP_NAME %>
 
 Hi <%= @user.name %>,
 
-Welcome to Nephelo! Click on the link below to activate your account:
+Welcome to <% APP_NAME %>! Click on the link below to activate your account:
 
 
 <%= link_to "Activate", edit_account_activation_url(@user.activation_token,

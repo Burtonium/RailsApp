@@ -75,5 +75,13 @@ class UserTest < ActiveSupport::TestCase
     @user.language = ""
     assert_not @user.valid?
   end
+  
+  test "associated microposts should be deleted" do
+    @user.save
+    @user.microposts.create(content: "I am content")
+    assert_difference 'Micropost.count', -1 do
+      @user.destroy
+    end
+  end
 end
   

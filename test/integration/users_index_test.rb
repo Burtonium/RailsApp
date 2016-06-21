@@ -45,9 +45,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_select 'a[href=?]', user_path(@inactive_user), 
                                text: @inactive_user.name
     get user_path(@inactive_user)
-    assert_template :show
+    assert_template 'users/show'
   end
-  
-  
   
 end
